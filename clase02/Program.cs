@@ -45,6 +45,7 @@ namespace clase02
                         correctly = false;
                     }
                 } while (correctly == false);
+
             }
             Console.WriteLine("El número máximo ingresado fue: " + maxNumber);
             Console.WriteLine("El número mínimo ingresado fue: " + minNumber);
