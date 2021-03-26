@@ -10,9 +10,9 @@ namespace Biblioteca
     {
         public int cantidadSumas;
 
-        public Sumador(int num)
+        public Sumador(int cantidadSumas)
         {
-            this.cantidadSumas = num;
+            this.cantidadSumas = cantidadSumas;
         }
         public Sumador()
             : this(0)
@@ -32,6 +32,25 @@ namespace Biblioteca
             return a + " " + b;
         }
 
+        public static explicit operator int(Sumador suma)
+        {
+            return suma.cantidadSumas;
+        }
+
+        public static long operator +(Sumador s1, Sumador s2)
+        {
+            return s1.cantidadSumas + s2.cantidadSumas;
+        }
+
+        public static bool operator |(Sumador s1, Sumador s2)
+        {
+            bool retorno = false;
+            if (s1.cantidadSumas == s2.cantidadSumas)
+            {
+                retorno = true;
+            }
+            return retorno; 
+        }
 
 
 

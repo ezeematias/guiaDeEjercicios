@@ -8,10 +8,14 @@ namespace Ejercicio19
         static void Main(string[] args)
         {
             long suma;
+            string titulo;
             Sumador s1 = new Sumador();
-            suma = s1.Sumar(10, 20);
+            Sumador s2 = new Sumador(1);
+            Console.WriteLine(s1.Sumar(10, 20));
+            Console.WriteLine(s2.Sumar("Holis"," 20"));
+            Console.WriteLine(s2 + s1);
+            Console.WriteLine(s1 | s2);    
 
-            Console.WriteLine("SUMADOR S1 " + s1 + "\nRESULTADO SUMA " + suma + "\nCANTIDAD SUMAS " + s1.cantidadSumas);
 
             Console.ReadLine();
 
