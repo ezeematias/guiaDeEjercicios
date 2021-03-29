@@ -10,5 +10,20 @@ namespace Billetes
     {
         private double cantidad;
         private double cotizRespectoDolar;
+        private Euro() : this(1)
+        {
+
+        }
+
+        public Euro(double cantidad)
+        {
+            this.cantidad = cantidad;
+        }
+
+        public Euro(double cantidad, double cotizacion) : this(cantidad)
+        {
+            this.cantidad = cantidad;
+            this.cotizRespectoDolar = cotizacion;
+        }
     }
 }
