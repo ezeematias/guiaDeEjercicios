@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Billetes
 {
-    class Euro
+    public class Euro
     {
         private double cantidad;
         private double cotizRespectoDolar;
