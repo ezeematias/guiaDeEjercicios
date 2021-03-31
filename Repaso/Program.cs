@@ -64,8 +64,6 @@ namespace Repaso
             Console.WriteLine("<------------------------------------------------->");
             Console.WriteLine(Estante.MostrarEstante(estante));
             Console.ReadKey();
-
-
         }
     }
 }
