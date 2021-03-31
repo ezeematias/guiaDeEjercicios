@@ -29,13 +29,13 @@ namespace BibiotecaRepaso
         public static string MostrarEstante(Estante e)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("ESTANTE {0}", e.ubicacionEstante);
+            sb.AppendFormat("ESTANTE {0}\n", e.ubicacionEstante);
 
             foreach (Producto p1 in e.GetProducto())
             {
                 if (!(p1 is null))
                 {
-                    sb.AppendFormat("PRODUCTO: {0} ", Producto.MostrarProducto(p1));
+                    sb.AppendFormat("\nPRODUCTO:\n{0}", Producto.MostrarProducto(p1));
                 }
             }
             return sb.ToString();

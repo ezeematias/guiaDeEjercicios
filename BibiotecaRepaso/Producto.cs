@@ -12,7 +12,7 @@ namespace BibiotecaRepaso
         private string marca;
         private float precio;
 
-        public Producto(string codigoDeBarra, string marca, float precio)
+        public Producto(string marca, string codigoDeBarra,  float precio)
         {
             this.codigoDeBarra = codigoDeBarra;
             this.marca = marca;
