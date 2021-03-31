@@ -10,11 +10,11 @@ namespace Billetes
 
     {
         private double cantidad;
-        private double cotizRespectoDolar;
+        private static double cotizRespectoDolar;
 
-        private Dolar() : this(1)
+        static Dolar() 
         {
-
+            cotizRespectoDolar = 1;
         }
 
         public Dolar(double cantidad)
@@ -23,13 +23,15 @@ namespace Billetes
         }
 
         public Dolar(double cantidad, double cotizacion) : this(cantidad)
-        {
-            this.cantidad = cantidad;
-            this.cotizRespectoDolar = cotizacion;
+        { 
+           cotizRespectoDolar = cotizacion;
         }
 
         public static explicit operator Euro(Dolar d)
         {
+            double auxCotiz = Euro.GetCotizacion();
+            double auxCantidad = d.GetCantidad();
+            //return Euro.GetCotizacion() (Euro)d.GetCantidad();
             return (Euro)d;
         }
 
@@ -43,9 +45,9 @@ namespace Billetes
             return this.cantidad;
         }
 
-        public double GetCotizacion()
+        public static double GetCotizacion()
         {
-            return this.cotizRespectoDolar;
+            return cotizRespectoDolar;
         }
 
         public static implicit operator Dolar(double d)

@@ -9,10 +9,10 @@ namespace Billetes
     public class Pesos
     {
         private double cantidad;
-        private double cotizRespectoDolar;
-        private Pesos() : this(1)
+        private static double cotizRespectoDolar;
+        static Pesos() 
         {
-
+           cotizRespectoDolar = 0.015;
         }
         public Pesos(double cantidad)
         {
@@ -20,9 +20,17 @@ namespace Billetes
         }
 
         public Pesos(double cantidad, double cotizacion) : this(cantidad)
+        { 
+            cotizRespectoDolar = cotizacion;
+        }
+        public double GetCantidad()
         {
-            this.cantidad = cantidad;
-            this.cotizRespectoDolar = cotizacion;
+            return this.cantidad;
+        }
+
+        public static double GetCotizacion()
+        {
+            return cotizRespectoDolar;
         }
     }
 }
