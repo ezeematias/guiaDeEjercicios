@@ -25,7 +25,7 @@ namespace MiniSuper
             this.provincia = provincia;
         }
 
-        private string mostrarNombres()
+        private string MostrarNombres()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(this.name);
@@ -42,7 +42,7 @@ namespace MiniSuper
         }
         public override string ToString()
         {
-            return this.mostrarNombres();
+            return this.MostrarNombres();
         }
     }
 }

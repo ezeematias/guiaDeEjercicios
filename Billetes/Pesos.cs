@@ -12,7 +12,7 @@ namespace Billetes
         private static double cotizRespectoDolar;
         static Pesos() 
         {
-           cotizRespectoDolar = 0.015;
+           cotizRespectoDolar = 66;
         }
         public Pesos(double cantidad)
         {

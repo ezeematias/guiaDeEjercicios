@@ -29,15 +29,12 @@ namespace Billetes
 
         public static explicit operator Euro(Dolar d)
         {
-            double auxCotiz = Euro.GetCotizacion();
-            double auxCantidad = d.GetCantidad();
-            //return Euro.GetCotizacion() (Euro)d.GetCantidad();
-            return (Euro)d;
+            return new Euro(d.GetCantidad() * Euro.GetCotizacion());                      
         }
 
         public static explicit operator Pesos(Dolar d)
         {
-            return (Pesos)d;
+           return new Pesos(d.GetCantidad() * Pesos.GetCotizacion());            
         }
 
         public double GetCantidad()
@@ -52,24 +49,16 @@ namespace Billetes
 
         public static implicit operator Dolar(double d)
         {
-            return (Dolar)d;
+            return new Dolar(d);
         }
 
         public static bool operator !=(Dolar d, Euro e)
-        {
-            if (d != e)
-            {
-
-            }
-            return true;
+        {            
+            return (!(d == (Dolar)e));
         }
         public static bool operator ==(Dolar d, Euro e)
         {
-            if (d == e)
-            {
-
-            }
-            return false;
+            return (d == (Dolar)e);
         }
         public static bool operator !=(Dolar d, Pesos p)
         {

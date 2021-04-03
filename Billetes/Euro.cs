@@ -12,7 +12,7 @@ namespace Billetes
         private static double cotizRespectoDolar;
         static Euro() 
         {
-            cotizRespectoDolar = 1.08;
+            cotizRespectoDolar = 0.925;
         }
 
         public Euro(double cantidad)
@@ -32,6 +32,16 @@ namespace Billetes
         public static double GetCotizacion()
         {
             return cotizRespectoDolar;
+        }
+        public static explicit operator Dolar(Euro d)
+        {
+            return new Dolar(d.GetCantidad() / Euro.GetCotizacion());
+        }
+
+        public static explicit operator Pesos(Euro d)
+        {
+            Dolar dolar = (Dolar)d;
+            return new Pesos(dolar.GetCantidad() * Pesos.GetCotizacion());
         }
     }
 }

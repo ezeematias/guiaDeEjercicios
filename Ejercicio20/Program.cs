@@ -11,7 +11,15 @@ namespace Ejercicio20
     {
         static void Main(string[] args)
         {
+            Dolar dolar = new Dolar(10);
 
+            Euro euro = (Euro)dolar;
+            Pesos pesos = (Pesos)dolar;
+
+
+            Console.WriteLine("Dolar a Pesos {0}", pesos.GetCantidad());
+            Console.WriteLine("Dolar a Euro {0}", euro.GetCantidad());
+            Console.ReadLine();
         }
     }
 }
