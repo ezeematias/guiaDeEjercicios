@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Billetes
 {
     public class Dolar
-
     {
         private double cantidad;
         private static double cotizRespectoDolar;
 
-        static Dolar() 
+        static Dolar()
         {
             cotizRespectoDolar = 1;
         }
@@ -23,18 +22,18 @@ namespace Billetes
         }
 
         public Dolar(double cantidad, double cotizacion) : this(cantidad)
-        { 
-           cotizRespectoDolar = cotizacion;
+        {
+            cotizRespectoDolar = cotizacion;
         }
 
         public static explicit operator Euro(Dolar d)
         {
-            return new Euro(d.GetCantidad() * Euro.GetCotizacion());                      
+            return new Euro(d.GetCantidad() * Euro.GetCotizacion());
         }
 
         public static explicit operator Pesos(Dolar d)
         {
-           return new Pesos(d.GetCantidad() * Pesos.GetCotizacion());            
+            return new Pesos(d.GetCantidad() * Pesos.GetCotizacion());
         }
 
         public double GetCantidad()
@@ -53,7 +52,7 @@ namespace Billetes
         }
 
         public static bool operator !=(Dolar d, Euro e)
-        {            
+        {
             return (!(d == (Dolar)e));
         }
         public static bool operator ==(Dolar d, Euro e)
@@ -62,41 +61,53 @@ namespace Billetes
         }
         public static bool operator !=(Dolar d, Pesos p)
         {
-            if (d != p)
-            {
-
-            }
-            return false;
+            return (!(d == (Dolar)p));
         }
         public static bool operator ==(Dolar d, Pesos p)
         {
-            if (d == p)
-            {
-
-            }
-            return false;
+            return (d == (Dolar)p);
         }
         public static bool operator !=(Dolar d1, Dolar d2)
         {
-            if (d1 != d2)
-            {
+            return (!(d1 == d2));
 
-            }
-            return false;
         }
         public static bool operator ==(Dolar d1, Dolar d2)
         {
-            if (d1 == d2)
+            if (!(d1 is null) && !(d2 is null) && d1.Equals(d2))
             {
                 return true;
             }
             return false;
+
         }
 
         public static Dolar operator -(Dolar d, Euro e)
         {
-            return d - e;
+            Dolar dolarAux = (Dolar)e;
+            dolarAux.cantidad -= d.GetCantidad();
+            return dolarAux;
         }
 
+        public static Dolar operator -(Dolar d, Pesos p)
+        {
+            Dolar dolarAux = (Dolar)p;
+            dolarAux.cantidad -= d.GetCantidad();
+            return dolarAux;
+        }
+
+        public static Dolar operator +(Dolar d, Euro e)
+        {
+            Dolar dolarAux = (Dolar)e;
+            dolarAux.cantidad += d.GetCantidad();
+            return dolarAux;
+        }
+
+        public static Dolar operator +(Dolar d, Pesos p)
+        {
+            Dolar dolarAux = (Dolar)p;
+            dolarAux.cantidad += d.GetCantidad();
+            return dolarAux;
+        }
     }
 }

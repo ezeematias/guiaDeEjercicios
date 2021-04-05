@@ -32,5 +32,19 @@ namespace Billetes
         {
             return cotizRespectoDolar;
         }
+
+        public static explicit operator Dolar(Pesos p)
+        {
+            return new Dolar(p.GetCantidad() / Pesos.GetCotizacion());
+        }
+
+        public static explicit operator Euro(Pesos p)
+        {
+            Dolar dolar = (Dolar)p;
+            return new Euro(dolar.GetCantidad() * Euro.GetCotizacion());
+        }
+
+
+
     }
 }
